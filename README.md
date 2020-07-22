@@ -49,4 +49,16 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
         - Elastic Beanstalk monitors the amount of traffic coming in to VM. When that traffic reaches a certain threshhold, EB will automatically add in additional VM's to handle that traffic. 
         - Load Balancer will find the VM with the least amount of traffic and route the request to that machine.
         - Benefit is that EB automatically scales everything up for us.
-    - 
+    - Configure `.travis.yml` to add deploy instructions (notes in files).
+
+
+REMINDER TO DELETE RESOURCES CREATED IN EBS OR YOU WILL BE CHARGED AWS BILL
+1. Go to the Elastic Beanstalk dashboard.
+
+2. In the left sidebar click "Applications"
+
+3. Click the application you'd like to delete.
+
+4. Click the "Actions" button and click "Delete Application"
+
+5. You will be prompted to enter the name of your application to confirm the deletion.
