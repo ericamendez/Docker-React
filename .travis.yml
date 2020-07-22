@@ -8,3 +8,32 @@ before_install:
 
 script:
     - docker run -e CI=true ericamendez/docker-react npm run test
+
+# tell Travis CI how to take application and deploy it to AWS
+# deploy:
+#     provider: elasticbeanstalk
+#     region:  ((This will be in the URL EBS provides. Ex) "us-west-2")
+
+#     whatever you calle dthe app in EBS
+#     app: "docker-react"
+
+#     whatever is after app title
+#     env: "Docker-env"
+
+#     Travis will zip up Github repo, and drop them into an S3 bucket. We have to specify the name that Travis CI will put our zip file into. Search for it in S3, it should have the name you provided in region in it
+#     bucket_name: "<bucket_name>"
+
+#     equal to app name
+#     bucket_path: "docker-react"
+
+#     Only deply the application when we push code to master
+#     on:
+#         branch: master
+
+# Last thing to do is provide a set of AWS API keys that  will provide access to Travis CI
+# Will go to IAM (manages API keys that can be used for outside services), -> Users -> Add user (username: docker-react-travis-ci, Programmatic access) ->
+# attach existing policies directly (policies essentially permissions. We want new user to have access to EBS) -> Beanstak policy that provides full access
+# secret key will only be shown one time!!!!!!!!!!!!!! Do not put those keys directly in this file!!!!!!!!!!!!!
+# We can use environment secret feature provided by Travis CI -> Settings -> Environment Variables -> Name - AWS_ACCESS_KEY, value (paste aws access Key) same with secret
+# access_key_id: $AWS_ACCESS_KEY
+# secret_access_key: $AWS_SECRET_KEY

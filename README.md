@@ -43,3 +43,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ### Continuous Integration (with Travis CI) and Deployment with AWS
 - I will be using Travis CI so I configured a `.tavis.yml` file to let Travis know we want docker installed and specify the series of commands to execute before the test are ran.
+- The project was deployed using AWS Elastic Beanstalk (easiest way to get started with production docker instances). 
+    - Create new application, create web server environment (platform: docker), (IF YOU LEAVE THESE INSTANCES UP YOU WILL BE BILLED MONEY FOR IT, MAKE SURE TO SHUT IT DOWN)
+    - Elastic Beanstalk Workflow: http request -> AWS Environment: Load Balancer route reuest -> Virtual Machine that is running Docker with our application inside of it.
+        - Elastic Beanstalk monitors the amount of traffic coming in to VM. When that traffic reaches a certain threshhold, EB will automatically add in additional VM's to handle that traffic. 
+        - Load Balancer will find the VM with the least amount of traffic and route the request to that machine.
+        - Benefit is that EB automatically scales everything up for us.
+    - 
