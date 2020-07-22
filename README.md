@@ -42,4 +42,4 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
     - docker hub has a nginx image, we will be doing a multi step build process for our production container.
 
 ### Continuous Integration (with Travis CI) and Deployment with AWS
-- We will be using Travis CI so we will configure a `.tavis.yml` file to let Travis know we want docker installed and specify the seriies of commands to execute before the test are ran.
+- I will be using Travis CI so I configured a `.tavis.yml` file to let Travis know we want docker installed and specify the series of commands to execute before the test are ran.
