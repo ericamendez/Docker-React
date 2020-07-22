@@ -1,0 +1,26 @@
+version: '2'
+services:
+    web:
+        # fixes bug that gives error that makes REACT exit with code 0
+        stdin_open: true
+        # when the Dockerfile is not called Dockerfile
+        build: 
+            # where we want all the files and folders for this image to be pulled from (. for same directory we have docker-compose.yml)
+            context: .
+            dockerfile: Dockerfile.dev
+        ports:
+            - "3000:3000"
+        volumes:
+            # reference the /app/node_modules folder in the container
+            - /app/node_modules
+            # reference working directory of local machine : container working directory. (this way when you make changes in local, they will appear in your build, even though we copied all files/fo;ders in the COPY . . step in the Dockerfile.dev)
+            - .:/app
+    test:
+        stdin_open: true
+        build: 
+            context: .
+            dockerfile: Dockerfile.dev
+        volumes:
+            - /app/node_modules
+            - .:/app
+        command: ["npm", "run", "test"]
