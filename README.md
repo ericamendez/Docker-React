@@ -40,3 +40,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - We will use server nginx, takes incoming traffic and routing to it with some static files. 
 - Create a seperate Dockerfile that will create a production version of our web container with a nginx server.
     - docker hub has a nginx image, we will be doing a multi step build process for our production container.
+
+### Continuous Integration (with Travis CI) and Deployment with AWS
+- We will be using Travis CI so we will configure a `.tavis.yml` file to let Travis know we want docker installed and specify the seriies of commands to execute before the test are ran.
